@@ -1,5 +1,6 @@
 package com.app.whatsupmessage.resources;
 
+import com.app.whatsupmessage.dto.MessageTemplateDto;
 import com.app.whatsupmessage.dto.SendMessageDto;
 import com.app.whatsupmessage.projection.BlockMenuProjection;
 import com.app.whatsupmessage.service.BlockSubMenuService;
@@ -37,6 +38,14 @@ public class PublicResource {
 
         service.sendMessage(dto);
         return ok(success("","Send Message Successfully").getJson());
+    }
+
+
+    @PostMapping("/create-template")
+    @Operation(summary = "Create message template", description = "Create message template")
+    @ApiResponse(responseCode = "200", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))})
+    public String createMessageTemplate(@RequestBody MessageTemplateDto request) {
+        return service.createMessageTemplate(request);
     }
 
 

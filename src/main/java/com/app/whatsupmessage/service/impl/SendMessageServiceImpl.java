@@ -1,7 +1,7 @@
 package com.app.whatsupmessage.service.impl;
 
+import com.app.whatsupmessage.dto.MessageTemplateDto;
 import com.app.whatsupmessage.dto.SendMessageDto;
-import com.app.whatsupmessage.dto.ToNumberDto;
 import com.app.whatsupmessage.service.SendMessageService;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONObject;
@@ -25,7 +25,6 @@ public class SendMessageServiceImpl implements SendMessageService {
                 HttpHeaders headers = new HttpHeaders();
                 headers.setBearerAuth("EAAL34UIOZBLwBOzSdotlWKa8hYOkCD1iZCfEZAwtFEDN6UGPQzT9VDuPJi9sVCJYOgDt7MG2V1sf2MAItC6L8sqNprTF9ZB9sYXkfEhjLZBdISrUIrVmwyQw6eziZCWqB1qfViGbxGZB7jCp8AK2W3LYNR65dbOZCI30rwhZBnycriMfH4IhRHxgpbAqMk8UZCcOjTHiLGRoZABL9FHqqjd");
                 headers.set("Content-Type", "application/json");
-                
 
                 JSONObject requestBody = new JSONObject();
                 requestBody.put("messaging_product", "whatsapp");
@@ -57,4 +56,23 @@ public class SendMessageServiceImpl implements SendMessageService {
 
         return null;
     }
+
+    @Override
+    public String createMessageTemplate(MessageTemplateDto dto) {
+        String url = "apiConfig.getApiUrl()" + "/v1/message_templates";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + "apiConfig.getApiToken());");
+        headers.set("Content-Type", "application/json");
+
+        String requestBody = String.format(
+                "{\"name\": \"%s\", \"language\": \"%s\", \"content\": \"%s\"}",
+                dto.getName(), dto.getLanguage(), dto.getContent()
+        );
+
+        HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
+
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+
+        return response.getBody();    }
 }
