@@ -59,10 +59,10 @@ public class SendMessageServiceImpl implements SendMessageService {
 
     @Override
     public String createMessageTemplate(MessageTemplateDto dto) {
-        String url = "apiConfig.getApiUrl()" + "/v1/message_templates";
+        String url = "https://graph.facebook.com/v13.0/373412419184442/message_templates";
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + "apiConfig.getApiToken());");
+        headers.set("Authorization", "Bearer " + "EAAL34UIOZBLwBO3sigphWWXdDOub9no3euxdk2tls9qkXkJSZCdGcZCHY72AXvZBdJY45NDE2CgZAUCz3rT7q6jV83OLWLSmCbI839QELjbi6EVGMuzVaRRmRpv3d0PikKrhKyNo0SZCoocIeWNltpHeXgByoXuCCd5JnI0iFEHdSjTU6jgPNazvmNoaWJd4aD");
         headers.set("Content-Type", "application/json");
 
         String requestBody = String.format(
