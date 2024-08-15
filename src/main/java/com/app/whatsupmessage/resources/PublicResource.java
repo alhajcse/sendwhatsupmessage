@@ -2,8 +2,6 @@ package com.app.whatsupmessage.resources;
 
 import com.app.whatsupmessage.dto.MessageTemplateDto;
 import com.app.whatsupmessage.dto.SendMessageDto;
-import com.app.whatsupmessage.projection.BlockMenuProjection;
-import com.app.whatsupmessage.service.BlockSubMenuService;
 import com.app.whatsupmessage.service.SendMessageService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -15,8 +13,6 @@ import org.json.simple.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 import static com.app.whatsupmessage.utils.ResponseBuilder.*;
 import static org.springframework.http.ResponseEntity.ok;

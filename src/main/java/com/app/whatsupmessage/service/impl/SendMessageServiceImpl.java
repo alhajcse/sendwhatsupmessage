@@ -11,6 +11,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class SendMessageServiceImpl implements SendMessageService {
@@ -66,8 +69,8 @@ public class SendMessageServiceImpl implements SendMessageService {
         headers.set("Content-Type", "application/json");
 
         String requestBody = String.format(
-                "{\"name\": \"%s\", \"language\": \"%s\", \"content\": \"%s\"}",
-                dto.getName(), dto.getLanguage(), dto.getContent()
+                "{\"name\": \"%s\", \"language\": \"%s\"}",
+                dto.getName(), Map.of("code", "en_US")
         );
 
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);

@@ -1,6 +1,5 @@
 package com.app.whatsupmessage.dto;
 
-import com.app.whatsupmessage.entity.BlockMenu;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
