@@ -10,6 +10,6 @@ RUN ./gradlew bootJar
 
 FROM openjdk:17-jdk-alpine
 WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
+COPY --from=build /app/build/libs/*.jar whatsapp.jar
 EXPOSE 8033
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "whatsapp.jar"]
