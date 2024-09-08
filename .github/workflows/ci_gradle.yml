@@ -51,3 +51,12 @@ jobs:
       with:
         name: build-artifacts
         path: build/libs/*.jar  # Adjust according to your project structure
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: alhajcse/whatsapp
+        tags: latest
+        registry: registry-url.io
+        dockerfile: Dockerfile.ci
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
