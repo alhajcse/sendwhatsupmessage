@@ -30,7 +30,7 @@ jobs:
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
-          # Step 3: Set up Gradle 8.8 using gradle/actions/setup-gradle
+    # Step 3: Set up Gradle 8.8 using gradle/actions/setup-gradle
     - name: Set up Gradle 8.8
       uses: gradle/gradle-build-action@v3
       with:
