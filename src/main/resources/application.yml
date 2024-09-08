@@ -19,9 +19,9 @@ spring:
 
   # Database Configuration
   datasource:
-    url: jdbc:mysql://localhost:3306/message_db
+    url: jdbc:mysql://180.211.137.8:3306/whatsapp
     username: root
-    password: root
+    password: Nexalinx@!1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     # Hikari Configuration
