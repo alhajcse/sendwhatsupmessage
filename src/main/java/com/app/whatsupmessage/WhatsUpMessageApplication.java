@@ -8,7 +8,7 @@ public class WhatsUpMessageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WhatsUpMessageApplication.class, args);
-		System.out.println("hello world");
+		System.out.println("hello CI/CD");
 	}
 
 }
